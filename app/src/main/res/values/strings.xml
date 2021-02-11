@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Invoice</string>
+    <string name="demo_addr">Gat no 1521, Aai Nivas, Hanumannagar, Nigdi, Pune, near Balaji English Med School</string>
+    <string name="sharing_text">ShareInvoice</string>
+    <string name="ABC">Share</string>
+    <string name="screenshot_take_failed">Screen Shot Failed</string>
+</resources>

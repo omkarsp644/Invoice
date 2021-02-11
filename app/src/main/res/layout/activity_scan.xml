@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Activities.Scan">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20sp"
+        android:id="@+id/cardToolBar"
+        app:cardElevation="20sp">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Inventory"
+            android:id="@+id/ToolbarScan">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go To HomePage"
+                android:gravity="end"
+                android:onClick="StartHome"
+                android:layout_marginStart="50sp"
+                android:foregroundGravity="right"
+                android:layoutDirection="ltr"/>
+        </androidx.appcompat.widget.Toolbar>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/cardToolBar"
+        android:id="@+id/card2"
+        app:cardElevation="20sp"
+        app:cardCornerRadius="30sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.3"
+                app:cardCornerRadius="20sp"
+                app:cardElevation="20sp"
+                app:cardBackgroundColor="@color/purple_500"
+                android:layout_height="wrap_content"
+                android:elevation="20sp"
+                android:layout_margin="10sp">
+                <com.journeyapps.barcodescanner.CompoundBarcodeView
+                    android:layout_width="match_parent"
+                    android:onClick="Start"
+                    android:id="@+id/compoundBarcode"
+                    android:layout_height="150sp"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="0sp"
+                    android:layout_weight="0.7"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:id="@+id/qrCodeId"
+                    android:inputType="phone"
+                    android:hint="Enter code "/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="20sp"
+                    app:cardElevation="20sp"
+                    android:id="@+id/AddDa"
+                    app:cardBackgroundColor="@color/purple_500"
+                    android:layout_height="wrap_content"
+                    android:elevation="20sp"
+                    android:layout_margin="10sp">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/transparent"
+                        android:layout_height="wrap_content"
+                        android:text="Add"
+                        android:textAllCaps="false"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        app:cardCornerRadius="20sp"
+        android:layout_height="match_parent"
+        app:cardElevation="20sp"
+        android:layout_below="@+id/card2"
+        android:layout_margin="10sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5sp"
+            android:weightSum="1"
+            android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.1"
+                    android:layout_margin="5sp"
+                    android:layout_height="0sp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="10sp"
+                    app:cardElevation="20sp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:text="Id"
+                            android:textColor="@android:color/holo_red_light"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="20sp"
+                            android:layout_weight="0.4"
+                            android:text="Product Name"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:text="Price"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:text="Count"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:text="Price"
+                            android:textColor="@android:color/holo_red_light"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.1"
+                            android:text="Rem"
+                            android:foregroundGravity="center"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:nestedScrollingEnabled="true"
+                android:id="@+id/showtrans"
+                android:layout_weight="0.7"
+                android:layout_height="0sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/linee"
+                android:weightSum="1"
+                android:layout_weight="0.2"
+                android:orientation="horizontal"
+                android:layout_height="0sp">
+
+                <Button
+                    android:layout_width="0sp"
+                    android:layout_weight="0.5"
+                    android:layout_margin="10sp"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:id="@+id/Billing"
+                    android:layout_height="wrap_content"
+                    android:text="Billing"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_width="0sp"
+                    android:id="@+id/Reset"
+                    android:textSize="10sp"
+                    android:layout_margin="10sp"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Reset List"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

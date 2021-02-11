@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "164322590380",
+    "firebase_url": "https://myfirebase-3af47.firebaseio.com",
+    "project_id": "myfirebase-3af47",
+    "storage_bucket": "myfirebase-3af47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164322590380:android:21d103c56320fb005aa909",
+        "android_client_info": {
+          "package_name": "com.svttechnology.invoice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164322590380-rs60fli2se5tvlo4e6f82sr71831lepp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsKkW-p2ZdJ7iFciNt2GJXn8uSBBzmB7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "164322590380-rs60fli2se5tvlo4e6f82sr71831lepp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "164322590380-e3galir934rlelo8iukd65ck46621ac5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.FirebaseDemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
