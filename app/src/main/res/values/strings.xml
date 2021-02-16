@@ -4,4 +4,5 @@
     <string name="sharing_text">ShareInvoice</string>
     <string name="ABC">Share</string>
     <string name="screenshot_take_failed">Screen Shot Failed</string>
+    <string name="my_api_key_google_signin">92669478941-h2vt3em54eh2c95kkm8r1ehd6e2t46js.apps.googleusercontent.com</string>
 </resources>

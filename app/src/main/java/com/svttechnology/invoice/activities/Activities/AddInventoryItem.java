@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,9 +24,9 @@ import com.journeyapps.barcodescanner.camera.CameraSettings;
 import com.svttechnology.invoice.R;
 import com.svttechnology.invoice.activities.ClasseFiles.InventoryData;
 
-public class AddInventoryItem extends AppCompatActivity {
+public class AddInventoryItem extends AppCompatActivity implements View.OnClickListener {
 
-    EditText id,name,cost;
+    TextInputEditText id,name,cost,count;
 
     CompoundBarcodeView barcode;
     Button submit;
@@ -34,9 +35,10 @@ public class AddInventoryItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory_item);
-        id=(EditText)findViewById(R.id.id1);
-        name=(EditText)findViewById(R.id.name1);
-        cost=(EditText)findViewById(R.id.cost1);
+        id=(TextInputEditText) findViewById(R.id.id1);
+        name=(TextInputEditText)findViewById(R.id.name1);
+        cost=(TextInputEditText)findViewById(R.id.cost1);
+        count=(TextInputEditText)findViewById(R.id.Count1);
 
         barcode=(CompoundBarcodeView)findViewById(R.id.compoundBarcode);
         barcode.setCameraSettings(new CameraSettings());
@@ -46,30 +48,8 @@ public class AddInventoryItem extends AppCompatActivity {
         inventory=FirebaseDatabase.getInstance().getReference().child("Data").child("Inventory");
 
 
+        submit.setOnClickListener(this);
 
-        submit.setOnClickListener(v -> {
-
-            String i= String.valueOf(id.getText());
-            String na=name.getText().toString();
-            String Cost=cost.getText().toString();
-            if (i.length()!=12|| na.isEmpty() || Cost.isEmpty()){
-                Toast.makeText(getApplicationContext(),"Barcode Must be 12 digit..",Toast.LENGTH_SHORT).show();
-            }
-            else{
-                DatabaseReference def=FirebaseDatabase.getInstance().getReference().child("Data").child("Inventory");
-                InventoryData d=new InventoryData(i,na,Cost);
-                def.child(i).setValue(d).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        id.getText().clear();
-                        name.getText().clear();
-                        cost.getText().clear();
-                        barcode.resume();
-                        Toast.makeText(getApplicationContext(),"Data Added...",Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -124,5 +104,36 @@ public class AddInventoryItem extends AppCompatActivity {
 
     public void GoBack(View view) {
         onBackPressed();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.Sumit:
+                String i= String.valueOf(id.getText());
+                String na=name.getText().toString();
+                String Cost=cost.getText().toString();
+                String Count=count.getText().toString();
+                if (na.isEmpty() || Cost.isEmpty() || Integer.parseInt(count.getText().toString())<=0){
+                    Toast.makeText(getApplicationContext(),"Barcode Must be 12 digit..",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    DatabaseReference def=FirebaseDatabase.getInstance().getReference().child("Data").child("Inventory");
+                    InventoryData d=new InventoryData(i,na,Cost,Integer.parseInt(Count));
+                    def.child(i).setValue(d).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            id.getText().clear();
+                            name.getText().clear();
+                            cost.getText().clear();
+                            count.getText().clear();
+                            barcode.resume();
+                            Toast.makeText(getApplicationContext(),"Inventory Updated...",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                break;
+
+        }
     }
 }

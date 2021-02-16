@@ -2,6 +2,7 @@ package com.svttechnology.invoice.activities.ClasseFiles;
 
 public class InventoryData {
     String Id,Name,Cost;
+    int Count;
 
     public String getId() {
         return Id;
@@ -27,13 +28,22 @@ public class InventoryData {
         Cost = cost;
     }
 
+    public int getCount() {
+        return Count;
+    }
+
+    public void setCount(int count) {
+        Count = count;
+    }
+
     public InventoryData() {
     }
 
-    public InventoryData(String id, String name, String cost) {
+    public InventoryData(String id, String name, String cost, int count) {
         Id = id;
         Name = name;
         Cost = cost;
+        Count = count;
     }
 }
 

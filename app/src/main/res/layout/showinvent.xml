@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:padding="5sp"
+    android:layout_margin="2sp"
+    android:background="@drawable/corners"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="0sp"
+        android:text="012562859332"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/productId"
+        android:layout_height="20sp"
+        android:layout_weight="0.3"/>
+    <TextView
+        android:layout_width="0sp"
+        android:text="Omkar Sampat Patil"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/productName"
+        android:layout_height="20sp"
+        android:layout_weight="0.2"/>
+    <TextView
+        android:layout_width="0sp"
+        android:text="120"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/productCost"
+        android:layout_height="20sp"
+        android:layout_weight="0.2"/>
+    <TextView
+        android:layout_width="0sp"
+        android:text="120"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/productAvail"
+        android:layout_height="20sp"
+        android:layout_weight="0.1"/>
+    <ImageView
+        android:layout_width="0sp"
+        android:layout_height="15sp"
+        android:id="@+id/productEdit"
+        android:layout_gravity="center"
+        android:layout_weight="0.1"
+        android:src="@drawable/edit_data"/>
+    <ImageView
+        android:layout_width="0sp"
+        android:id="@+id/productDelete"
+        android:layout_height="15sp"
+        android:layout_gravity="center"
+        android:layout_weight="0.1"
+        android:src="@drawable/delete_data"/>
+
+</LinearLayout>

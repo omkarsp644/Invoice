@@ -54,7 +54,7 @@ public class Scan extends AppCompatActivity implements View.OnClickListener {
     ListView transactions;
     String Product_id;
     Button billing,reset;
-    EditText cost,name;
+    TextInputEditText cost,name,count;
     TextView TotalAmount,TaxPer,TaxAmount,PayableAmount;
     CardView with,without;
     ImageView close;
@@ -139,8 +139,9 @@ public class Scan extends AppCompatActivity implements View.OnClickListener {
 
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         View v=View.inflate(this,R.layout.view_adddata,null);
-        name = (EditText) v.findViewById(R.id.nameview);
-        cost = (EditText) v.findViewById(R.id.costview);
+        name = (TextInputEditText) v.findViewById(R.id.nameview);
+        cost = (TextInputEditText) v.findViewById(R.id.costview);
+        count=(TextInputEditText)v.findViewById(R.id.countview);
         CardView submit=(CardView)v.findViewById(R.id.det);
         builder.setView(v);
         builder.setCancelable(true);
@@ -179,7 +180,7 @@ public class Scan extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void StartHome(View view) {
-        startActivity(new Intent(Scan.this,Home.class));
+        startActivity(new Intent(Scan.this,ShowInventory.class));
     }
 
 
@@ -210,8 +211,8 @@ public class Scan extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.det:
-                if (Integer.parseInt(cost.getText().toString()) > 0) {
-                    InventoryData i = new InventoryData(Product_id, name.getText().toString(), cost.getText().toString());
+                if (Integer.parseInt(cost.getText().toString()) > 0 && Integer.parseInt(count.getText().toString())>0) {
+                    InventoryData i = new InventoryData(Product_id, name.getText().toString(), cost.getText().toString(),Integer.parseInt(count.getText().toString()));
                     inventory.child(Product_id).setValue(i).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
